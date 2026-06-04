@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>騰雲運算 SkyCloud | 新人業務技術小教室</title>
+    <!-- Tailwind CSS v4 via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8fafc;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .truncate-2-lines {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="h-screen flex overflow-hidden text-slate-800">
+
+    <!-- SIDEBAR LEFT NAVIGATION -->
+    <div class="w-80 bg-slate-900 text-slate-100 flex flex-col h-full border-r border-slate-800 z-10 shrink-0">
+        <!-- Header Profile and Search Info inside Sidebar -->
+        <div class="p-5 bg-gradient-to-r from-slate-950 to-slate-900 border-b border-slate-800 shrink-0">
+            <div class="flex items-center space-x-2.5">
+                <div class="bg-sky-500 text-white p-1.5 rounded-lg flex items-center justify-center shadow-lg shadow-sky-500/20">
+                    <i class="mdi mdi-cloud-sync text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-wider text-white">騰雲運算 SkyCloud</h1>
+                    <p class="text-[11px] text-sky-400 font-bold tracking-wide uppercase">新人業務技術小教室</p>
+                </div>
+            </div>
+            <!-- Quick search engine box -->
+            <div class="mt-4 relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+                    <i class="mdi mdi-magnify text-sm"></i>
+                </span>
+                <input id="search-input" type="text" placeholder="搜尋培訓課程標題..." 
+                       class="w-full pl-9 pr-4 py-1.5 bg-slate-850 border border-slate-700 rounded-md text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+            </div>
+        </div>
+
+        <!-- Sidebar Active Links Panel Container Scrollable -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-4" id="sidebar-menu">
+
+        <div class="chapter-block" data-chapter="第一階段：網路與 DNS 基礎">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第一階段：網路與 DNS 基礎
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(1)" id="btn-lesson-1" data-title="網站是如何在手機上出現的？" data-id="1"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L1</span>
+                    <span class="leading-relaxed truncate-2-lines">網站是如何在手機上出現的？</span>
+                </button>
+    
+                <button onclick="switchLesson(2)" id="btn-lesson-2" data-title="什麼是 DNS？網路世界的導航員" data-id="2"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L2</span>
+                    <span class="leading-relaxed truncate-2-lines">什麼是 DNS？網路世界的導航員</span>
+                </button>
+    
+                <button onclick="switchLesson(3)" id="btn-lesson-3" data-title="為什麼 DNSSEC 是企業生意的安全保險？" data-id="3"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L3</span>
+                    <span class="leading-relaxed truncate-2-lines">為什麼 DNSSEC 是企業生意的安全保險？</span>
+                </button>
+    
+                <button onclick="switchLesson(4)" id="btn-lesson-4" data-title="進階流量調度：什麼是 GTM 智慧導流？" data-id="4"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L4</span>
+                    <span class="leading-relaxed truncate-2-lines">進階流量調度：什麼是 GTM 智慧導流？</span>
+                </button>
+    </div></div>
+        <div class="chapter-block" data-chapter="第二階段：CDN 核心概念與效能">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第二階段：CDN 核心概念與效能
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(5)" id="btn-lesson-5" data-title="什麼是 CDN？全球邊緣快取網路" data-id="5"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L5</span>
+                    <span class="leading-relaxed truncate-2-lines">什麼是 CDN？全球邊緣快取網路</span>
+                </button>
+    
+                <button onclick="switchLesson(6)" id="btn-lesson-6" data-title="靜態快取 vs. 動態加速的雙軌並進" data-id="6"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L6</span>
+                    <span class="leading-relaxed truncate-2-lines">靜態快取 vs. 動態加速的雙軌並進</span>
+                </button>
+    
+                <button onclick="switchLesson(7)" id="btn-lesson-7" data-title="節點 (Edge) 與回源 (Origin) 之間的微妙關係" data-id="7"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L7</span>
+                    <span class="leading-relaxed truncate-2-lines">節點 (Edge) 與回源 (Origin) 之間的微妙關係</span>
+                </button>
+    
+                <button onclick="switchLesson(8)" id="btn-lesson-8" data-title="關鍵效能指標：Cache Hit Ratio 與 Latency" data-id="8"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L8</span>
+                    <span class="leading-relaxed truncate-2-lines">關鍵效能指標：Cache Hit Ratio 與 Latency</span>
+                </button>
+    </div></div>
+        <div class="chapter-block" data-chapter="第三階段：我們的護城河：騰雲專屬架構解析">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第三階段：我們的護城河：騰雲專屬架構解析
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(9)" id="btn-lesson-9" data-title="拆解我們的 CDN 引擎：獨立反向代理 Nginx" data-id="9"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L9</span>
+                    <span class="leading-relaxed truncate-2-lines">拆解我們的 CDN 引擎：獨立反向代理 Nginx</span>
+                </button>
+    </div></div>
+        <div class="chapter-block" data-chapter="第三階段：我們的護城河：騰雲專專屬架構解析">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第三階段：我們的護城河：騰雲專專屬架構解析
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(10)" id="btn-lesson-10" data-title="站點 (Site) 與節點 (Node) 的多對多彈性宇宙" data-id="10"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L10</span>
+                    <span class="leading-relaxed truncate-2-lines">站點 (Site) 與節點 (Node) 的多對多彈性宇宙</span>
+                </button>
+    
+                <button onclick="switchLesson(11)" id="btn-lesson-11" data-title="為什麼我們強烈推薦大客戶使用「獨立站點」？" data-id="11"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L11</span>
+                    <span class="leading-relaxed truncate-2-lines">為什麼我們強烈推薦大客戶使用「獨立站點」？</span>
+                </button>
+    
+                <button onclick="switchLesson(12)" id="btn-lesson-12" data-title="節點分配的商業策略與資源優化" data-id="12"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L12</span>
+                    <span class="leading-relaxed truncate-2-lines">節點分配的商業策略與資源優化</span>
+                </button>
+    </div></div>
+        <div class="chapter-block" data-chapter="第四階段：CDN 與網站安全防護">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第四階段：CDN 與網站安全防護
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(13)" id="btn-lesson-13" data-title="網路攻擊百百種：DDoS 與惡意爬蟲威脅" data-id="13"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L13</span>
+                    <span class="leading-relaxed truncate-2-lines">網路攻擊百百種：DDoS 與惡意爬蟲威脅</span>
+                </button>
+    
+                <button onclick="switchLesson(14)" id="btn-lesson-14" data-title="網站應用程式專屬守衛：WAF 深度過濾" data-id="14"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L14</span>
+                    <span class="leading-relaxed truncate-2-lines">網站應用程式專屬守衛：WAF 深度過濾</span>
+                </button>
+    
+                <button onclick="switchLesson(15)" id="btn-lesson-15" data-title="HTTPS 與 SSL/TLS 憑證自動化管理" data-id="15"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L15</span>
+                    <span class="leading-relaxed truncate-2-lines">HTTPS 與 SSL/TLS 憑證自動化管理</span>
+                </button>
+    
+                <button onclick="switchLesson(16)" id="btn-lesson-16" data-title="網頁前端防護機制：點擊劫持與安全標頭配置" data-id="16"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L16</span>
+                    <span class="leading-relaxed truncate-2-lines">網頁前端防護機制：點擊劫持與安全標頭配置</span>
+                </button>
+    </div></div>
+        <div class="chapter-block" data-chapter="第五階段：產業情境與客戶痛點">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第五階段：產業情境與客戶痛點
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(17)" id="btn-lesson-17" data-title="電商產業的 CDN 應用：迎接雙 11 爆量營業額" data-id="17"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L17</span>
+                    <span class="leading-relaxed truncate-2-lines">電商產業的 CDN 應用：迎接雙 11 爆量營業額</span>
+                </button>
+    
+                <button onclick="switchLesson(18)" id="btn-lesson-18" data-title="遊戲與影音串流產業：大頻寬滿速下載的祕密" data-id="18"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L18</span>
+                    <span class="leading-relaxed truncate-2-lines">遊戲與影音串流產業：大頻寬滿速下載的祕密</span>
+                </button>
+    
+                <button onclick="switchLesson(19)" id="btn-lesson-19" data-title="高防禦需求產業的架構痛點與法規監管" data-id="19"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L19</span>
+                    <span class="leading-relaxed truncate-2-lines">高防禦需求產業的架構痛點與法規監管</span>
+                </button>
+    </div></div>
+        <div class="chapter-block" data-chapter="第六階段：銷售實戰與競品應對">
+            <h3 class="text-[10px] font-bold tracking-widest text-slate-500 uppercase mb-1.5 px-2">
+                第六階段：銷售實戰與競品應對
+            </h3>
+            <div class="space-y-0.5">
+        
+                <button onclick="switchLesson(20)" id="btn-lesson-20" data-title="需求挖掘與痛點分析：業務核心心法" data-id="20"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L20</span>
+                    <span class="leading-relaxed truncate-2-lines">需求挖掘與痛點分析：業務核心心法</span>
+                </button>
+    
+                <button onclick="switchLesson(21)" id="btn-lesson-21" data-title="市場競品分析與優勢：如何迎戰跨國大廠" data-id="21"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L21</span>
+                    <span class="leading-relaxed truncate-2-lines">市場競品分析與優勢：如何迎戰跨國大廠</span>
+                </button>
+    
+                <button onclick="switchLesson(22)" id="btn-lesson-22" data-title="敲門磚戰術：如何善用自製「域名檢測工具」" data-id="22"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L22</span>
+                    <span class="leading-relaxed truncate-2-lines">敲門磚戰術：如何善用自製「域名檢測工具」</span>
+                </button>
+    
+                <button onclick="switchLesson(23)" id="btn-lesson-23" data-title="POC (概念驗證) 的完美引導與 FAE 團隊分工" data-id="23"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L23</span>
+                    <span class="leading-relaxed truncate-2-lines">POC (概念驗證) 的完美引導與 FAE 團隊分工</span>
+                </button>
+    
+                <button onclick="switchLesson(24)" id="btn-lesson-24" data-title="常見客戶異議處理：嫌太貴、怕麻煩的話術攻防" data-id="24"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L24</span>
+                    <span class="leading-relaxed truncate-2-lines">常見客戶異議處理：嫌太貴、怕麻煩的話術攻防</span>
+                </button>
+    
+                <button onclick="switchLesson(25)" id="btn-lesson-25" data-title="價值與報價策略：如何幫客戶計算投資報酬率 (ROI)" data-id="25"
+                        class="lesson-btn w-full text-left px-2.5 py-2 rounded-md text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-all flex items-start space-x-2 border border-transparent">
+                    <span class="bg-slate-800 text-slate-500 w-5 h-5 rounded flex items-center justify-center shrink-0 font-mono text-[9px] num-tag">L25</span>
+                    <span class="leading-relaxed truncate-2-lines">價值與報價策略：如何幫客戶計算投資報酬率 (ROI)</span>
+                </button>
+    
+            </div>
+        </div>
+        </div>
+        <!-- Sidebar Fixed bottom branding badge info -->
+        <div class="p-3 bg-slate-950 text-center border-t border-slate-900 shrink-0 text-[10px] text-slate-600 font-mono">
+            © 2026 SkyCloud Technical Sales Academy
+        </div>
+    </div>
+
+    <!-- MAIN RIGHT VIEWPORT SECTION -->
+    <div class="flex-1 flex flex-col h-full overflow-hidden bg-slate-50">
+        <!-- TOP NAVIGATION CONTROL HUB BAR -->
+        <header class="bg-white border-b border-slate-200 h-14 px-6 flex items-center justify-between shrink-0 shadow-sm z-10">
+            <div class="flex items-center space-x-2 text-xs font-medium text-slate-500">
+                <i class="mdi mdi-book-open-outline text-sm text-slate-400"></i>
+                <span id="top-nav-chapter">-</span>
+                <i class="mdi mdi-chevron-right text-slate-300"></i>
+                <span class="text-slate-900 font-semibold" id="top-nav-title">-</span>
+            </div>
+            
+            <!-- Quick Shortcut Tool Links Hub Action Dropdown Menu -->
+            <div class="relative group">
+                <button class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-md text-xs font-semibold inline-flex items-center space-x-1.5 transition-colors cursor-pointer">
+                    <i class="mdi mdi-layers-outline text-sm text-sky-600"></i>
+                    <span>公司常用系統與工具選單</span>
+                    <i class="mdi mdi-chevron-down text-slate-400"></i>
+                </button>
+                <div class="absolute right-0 top-full mt-1 bg-white border border-slate-200 shadow-xl rounded-lg py-2 w-72 hidden group-hover:block z-50 animate-fadeIn">
+                    <div class="px-3 py-1 text-[10px] font-bold text-slate-400 tracking-wider uppercase border-b border-slate-100 mb-1">📚 客戶操作手冊 與 平台</div>
+                    <a href="https://doc-user.cdnray.net/" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>Skyedge 客戶操作手冊</span><span class="text-[10px] text-slate-400 font-mono">Docs</span></a>
+                    <a href="https://skyedge.skycloud.com.tw/user/login" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>SkyEdge 系統登入入口</span><span class="text-[10px] text-slate-400 font-mono">Login</span></a>
+                    <a href="https://skygtm.skycloud.com.tw/user/login" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>SkyGTM 系統登入入口</span><span class="text-[10px] text-slate-400 font-mono">Login</span></a>
+                    <a href="https://eip2.skycloud.tw/login/" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>EIP2 企業整合內部平台</span><span class="text-[10px] text-slate-400 font-mono">Internal</span></a>
+                    
+                    <div class="px-3 py-1 text-[10px] font-bold text-slate-400 tracking-wider uppercase border-b border-slate-100 mt-2 mb-1">📊 內部核心報表與教戰資源</div>
+                    <a href="https://docs.google.com/spreadsheets/d/1DPLiznMICtu-gk4AUCeUOnoqsxtq6dCxodP91iRFzA8/edit?gid=0#gid=0" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>報告大本營 (數據統計)</span><span class="text-[10px] text-emerald-600 font-bold">Sheet</span></a>
+                    <a href="https://docs.google.com/spreadsheets/d/1wDCsyuX7tNfyMe8mrLKLYKPo_aPftnAytDJ6XVtxhq4/edit?gid=1915303042#gid=1915303042" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>CDN 競品分析總整表</span><span class="text-[10px] text-emerald-600 font-bold">Sheet</span></a>
+                    <a href="https://docs.google.com/spreadsheets/d/1HDfxmldlFYrO4W9nIthHmhi5Om4RsQikO6WZPK_50jw/edit?gid=706565763#gid=706565763" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>SkyCloud-Pricing 價格表</span><span class="text-[10px] text-emerald-600 font-bold">Sheet</span></a>
+                    <a href="https://hackmd.io/@iPQqj0f3SIqBCfug7yl49Q/S1WiP6V6Wx" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>業務提案精準教戰手冊</span><span class="text-[10px] text-purple-600 font-bold">HackMD</span></a>
+                    
+                    <div class="px-3 py-1 text-[10px] font-bold text-slate-400 tracking-wider uppercase border-b border-slate-100 mt-2 mb-1">✈️ Andy 自製 Streamlit 域名工具</div>
+                    <a href="https://dns-checker-air-force.streamlit.app/" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>域名檢測器 - 空軍端</span><span class="text-[10px] text-sky-500 font-bold">App</span></a>
+                    <a href="https://dns-checker-navy.streamlit.app/" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>域名檢測器 - 海軍端</span><span class="text-[10px] text-blue-500 font-bold">App</span></a>
+                    <a href="https://dns-checker.streamlit.app/" target="_blank" class="px-4 py-1.5 text-xs text-slate-700 hover:bg-slate-50 flex justify-between"><span>域名檢測器 - 陸軍端</span><span class="text-[10px] text-emerald-500 font-bold">App</span></a>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN DYNAMIC CONTENT SCROLLABLE INTERFACE -->
+        <main class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+            <div class="max-w-4xl mx-auto" id="content-viewport">
+
+                <!-- Lesson 1 Dynamic Panel Block View -->
+                <div id="lesson-card-1" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第一階段：網路與 DNS 基礎
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 1.</span>
+                            <span>網站是如何在手機上出現的？</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                當使用者在瀏覽器輸入網址或點擊連結時，手機會向遠端伺服器發送一個 HTTP 請求。伺服器接收到後進行邏輯運作，並回傳包含網頁內容的 HTML、CSS 與 JavaScript 檔案，最後瀏覽器將其渲染成我們看見的精美網頁。這趟數據往返的實體傳輸物理距離與伺服器處理速度，就是決定網站快慢的關鍵因素。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    當主機單獨面對全球使用者的連線，伺服器的網路頻寬與 CPU 運算資源很容易在尖峰時刻被瞬間吃光，導致網站開啟極慢、甚至直接宕機，造成高達 40% 的使用者因載入超過 3 秒而直接流失。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲運算在全球最前線佈建了高效能的邊緣緩存網絡，大幅縮短了數據傳輸的實體物理距離。請求不再需要每次都大老遠跑回客戶源站，從源頭解決了網頁連線延遲的問題。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-5 border border-slate-800 font-mono text-xs text-slate-300">
+            <div class="flex flex-col space-y-3 max-w-md mx-auto">
+                <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded border border-sky-500/20">
+                    <span class="text-sky-400 font-bold">📱 終端瀏覽器</span>
+                    <span class="text-slate-500 text-[11px]">1. 發送 HTTP 請求 ➡️</span>
+                    <span class="text-indigo-400 font-bold">🌐 騰雲邊緣節點</span>
+                </div>
+                <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded border border-slate-800">
+                    <span class="text-indigo-400 font-bold">🌐 騰雲邊緣節點</span>
+                    <span class="text-slate-600 text-[11px]">2. 若無快取才回源 ➡️</span>
+                    <span class="text-emerald-400 font-bold">🖥️ 客戶中央源站</span>
+                </div>
+                <div class="p-2 bg-slate-800/50 rounded text-center text-sky-300 text-[11px]">
+                    ⚡ 快取命中時，騰雲節點直接在 0.01 秒內將網頁代碼完美回傳渲染！
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「客戶的注意力只有黃金 3 秒。網頁每多慢 1 秒，您的轉單率就會下滑 10%。騰雲的加速技術就是幫您把這 3 秒鐘的商機牢牢抓在手裡！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 2 Dynamic Panel Block View -->
+                <div id="lesson-card-2" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第一階段：網路與 DNS 基礎
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 2.</span>
+                            <span>什麼是 DNS？網路世界的導航員</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                DNS（Domain Name System，網域系統）就像是網路世界的『電話簿』。電腦底層只認識由數字組成的 IP 位址（例如 211.23.85.12），而人類只記得住網址（例如 www.skycloud.com.tw）。DNS 的任務就是將人類輸入的網址，精準翻譯成電腦看得懂的實體 IP 數字。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    如果客戶的網域解析速度過慢，使用者在輸入網址後會卡在白畫面數秒；更嚴重的是，若傳統的 DNS 伺服器遭受攻擊癱瘓，全世界的客人就都無法找到路，網站即便沒掛也如同蒸發一樣。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們提供高可用性、全球分佈式的頂級 DNS 解析服務。藉由高效能解析架構，將網域尋路時間縮短至毫秒級別，確保全球任何地區的客人都查得到路、進得來店面。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-5 border border-slate-800 text-center">
+            <div class="max-w-md mx-auto space-y-2 text-xs font-mono">
+                <div class="bg-slate-950 p-2 rounded text-sky-400 font-bold">輸入網址：www.skycloud.com.tw</div>
+                <div class="text-amber-500 font-bold py-1">⬇️ 騰雲 DNS 全球高速解析中 ⬇️</div>
+                <div class="bg-slate-950 p-2 rounded text-emerald-400 font-bold">轉換為實體 IP：211.23.XX.XX (找到目標)</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「網址就是您的品牌招牌，而 DNS 就是帶路的專業導航。導航如果斷線或回報錯誤路徑，再漂亮的品牌店面、再棒的產品，客戶也完全進不來！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 3 Dynamic Panel Block View -->
+                <div id="lesson-card-3" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第一階段：網路與 DNS 基礎
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 3.</span>
+                            <span>為什麼 DNSSEC 是企業生意的安全保險？</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                DNS 查詢預設是沒有加密且容易被偽造的。DNSSEC（網域系統安全擴充）透過在 DNS 解析層級引入『數位簽章』技術。當瀏覽器向 DNS 伺服器索取 IP 時，會同時驗證數位簽章是否正確，從底層杜絕駭客在傳輸途中偽造或竄改解析紀錄。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    若沒有 DNSSEC 防護，駭客可利用『DNS 劫持』漏洞將您的忠實客戶導向一個長得一模一樣的偽造釣魚網站，騙取會員密碼與信用卡號。企業將在一夜之間喪失客戶信任與面臨巨額法律訴訟。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲運算的平台全面原生支援頂級 DNSSEC 安全簽章機制，配合獨家研發的優化快取演算法，達成『最高安全規格』與『極致解析速度』的完美共存。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-5 border border-slate-800 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto font-mono">
+                <div class="bg-red-950/30 border border-red-900 rounded p-3 text-red-300">
+                    <span class="font-bold text-red-400 block mb-1">❌ 傳統 DNS 遭劫持</span>
+                    用戶查詢網址 ➡️ 被駭客竄改 ➡️ 錯誤 IP ➡️ 進入假冒網站外洩個資
+                </div>
+                <div class="bg-emerald-950/30 border border-emerald-900 rounded p-3 text-emerald-300">
+                    <span class="font-bold text-emerald-400 block mb-1">🛡️ 騰雲 DNSSEC 加密</span>
+                    密鑰加密簽章 ➡️ 檢查防偽 ➡️ 正確 IP ➡️ 順利安全抵達正牌官方站
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「不安全的 DNS 就像街頭路標能被小偷隨意塗改。啟用我們的 DNSSEC，就是給路標蓋上防偽公章，確保您的客人絕對能安全抵達正牌店面，不被攔路打劫！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 4 Dynamic Panel Block View -->
+                <div id="lesson-card-4" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第一階段：網路與 DNS 基礎
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 4.</span>
+                            <span>進階流量調度：什麼是 GTM 智慧導流？</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                GTM（Global Traffic Manager，全球流量管理器）是建構在 DNS 解析之上的高級流量指揮中心。它不只給出固定 IP，而是會 24 小時即時監測各個機房伺服器的健康狀態、網路負載與使用者的地理位置，智慧化地將使用者車流引導至最合適、最流暢的節點。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    當企業的單一主機遭遇斷線，或某個固定的電信線路突然塞車時，該區域的使用者會完全打不開網站，線上業務瞬間停擺，工程師往往需要花費數小時手動切換排障。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們的 SkyGTM 系統就像是一位反應神速的智慧交通警察。一旦偵測到 A 節點故障或線路塞車，在毫秒之內就會將後續所有流量自動分流至備用的 B 節點，終端用戶完全無感。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs text-center">
+            <div class="max-w-md mx-auto space-y-2">
+                <div class="bg-sky-950 text-sky-400 font-bold p-2 rounded">🌍 全球使用者發起連線請求</div>
+                <div class="text-amber-500 font-bold">⚡ SkyGTM 智慧路由自動派發：</div>
+                <div class="grid grid-cols-2 gap-2 text-slate-300 font-mono">
+                    <div class="p-2 bg-slate-950 rounded border border-slate-800">台北用戶 ➡️ 派發中華電信快線</div>
+                    <div class="p-2 bg-slate-950 rounded border border-slate-800">海外用戶 ➡️ 派發鄰近國際邊緣艙</div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「SkyGTM 是維持您線上生意永不停機的智慧交警。哪裡塞車、哪裡路斷了，它在千分之一秒內就能幫您把車流導向最順暢的替代道路，確保企業永遠不中斷服務！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 5 Dynamic Panel Block View -->
+                <div id="lesson-card-5" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第二階段：CDN 核心概念與效能
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 5.</span>
+                            <span>什麼是 CDN？全球邊緣快取網路</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                CDN（Content Delivery Network）是一種透過在全世界部署數百、數千台快取伺服器（節點）所組成的分佈式網路系統。它的核心邏輯是：把客戶網站上的靜態檔案（如商品圖片、影片、活動海報、樣式檔）複製一份，提前發送到離使用者最近的邊緣節點上，實現地緣上的就近存取。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    如果企業的原始主機在台北，美國或東南亞的客戶要下載產品圖片時，數據必須橫跨太平洋，連線速度極慢；若遇到熱門搶購檔期，數萬人同時向單一主機要資料，會直接把主機頻寬撐爆而癱瘓。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲運算擁有全球深度佈建的頂級 CDN 邊緣網路。我們能將客戶的產品內容瞬間推播到離世界各國消費者最近的前線節點，實現全網秒開的完美流暢體驗。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs">
+            <div class="max-w-md mx-auto space-y-2 font-mono text-center">
+                <div class="p-2 bg-red-950/20 border border-red-900 text-red-400 rounded">❌ 無 CDN 狀態：全球上萬造訪者 ➡️ 瘋狂擠爆單一源站主機 (速度極慢且極易崩潰)</div>
+                <div class="p-2 bg-emerald-950/20 border border-emerald-900 text-emerald-400 rounded">🛡️ 騰雲 CDN 狀態：造訪者 ➡️ 鄰近 CDN 邊緣節點 (0延遲直接回傳檔案)</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「CDN 就像在全國各地開連鎖便利商店。您不需要讓每個客人都大老遠跑回總倉庫拿貨，我們直接把貨物擺在他們家門口的超商貨架上，開門就能拿到！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 6 Dynamic Panel Block View -->
+                <div id="lesson-card-6" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第二階段：CDN 核心概念與效能
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 6.</span>
+                            <span>靜態快取 vs. 動態加速的雙軌並進</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                CDN 的加速手段分為兩種。第一種是『靜態快取』，針對圖片、CSS、JS、HTML等不會變動的內容，直接在邊緣節點落地儲存、重複利用；第二種是『動態加速』，針對購物車結帳、API數據、個人化資料等無法快取的內容，CDN 透過優化骨幹網絡與智慧路由，以走『數據高鐵專線』的方式用最快速度傳回中央源站處理。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    電商平台在限時搶購時，常發生商品靜態大圖跑不出來、而動態的購物車點擊結帳按鈕後因為路由塞車遲遲沒有回應，導致訂單大量結帳失敗、客戶憤而離開。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們的解決方案既能在最外圍大量消化 90% 以上的靜態圖片請求，大幅降低源站壓力；又能透過自建優化路由為動態 API 加速，兼顧了全站極速與交易的即時準確性。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs">
+            <div class="max-w-md mx-auto space-y-2 font-mono">
+                <div class="p-2 bg-slate-950 rounded border-l-4 border-sky-500">
+                    <span class="text-sky-400 font-bold">📸 靜態快取：</span> 圖片 / 影片 / 靜態樣式 ➡️ 在邊緣節點秒速直接回傳給用戶
+                </div>
+                <div class="p-2 bg-slate-950 rounded border-l-4 border-yellow-500">
+                    <span class="text-yellow-400 font-bold">⚡ 動態加速：</span> 購物車下單 / 實時 API ➡️ 智慧骨幹路由 ➡️ 最速衝回源站處理
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「不會變的商品大圖，我們在離客戶最近的超商直接發貨（靜態快取）；涉及算錢的動態結帳，我們幫您開一條專屬高鐵專線直達總部主機（動態加速），兩者兼顧！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 7 Dynamic Panel Block View -->
+                <div id="lesson-card-7" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第二階段：CDN 核心概念與效能
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 7.</span>
+                            <span>節點 (Edge) 與回源 (Origin) 之間的微妙關係</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                在 CDN 架構中，站在最前線服務客戶的快取主機被稱為『邊緣節點（Edge）』，而客戶的自有中央伺服器則被稱為『源站（Origin）』。當 Edge 節點沒有該檔案的快取時，它必須向 Origin 源站要一份過來，這個動作稱為『回源（Origin Fetch）』。如果源站當機、或者源站反應太慢導致 Edge 等不到回應，前端就會跳出 502 Bad Gateway 或 504 Gateway Timeout 的經典錯誤碼。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    許多缺乏調校經驗的 CDN 設定，在活動開跑、海量使用者湧入的黃金第一秒時，因為快取命中率不佳，導致所有請求同步衝回源站（稱為快取雪崩），直接把客戶源站主機壓垮，網站全面癱瘓。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲運算的專業技術工程師（FAE）具備深厚的架構調校實戰經驗。能為客戶精準設定快取過期策略與回源控制，幫客戶擋下前線 95% 以上的敲門流量，完美保護後方源站安全。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs">
+            <div class="flex items-center justify-around font-mono max-w-md mx-auto text-center">
+                <div class="p-2 bg-slate-950 border border-slate-800 rounded text-slate-300">👨‍💻 終端用戶</div>
+                <div class="text-slate-600">➡️</div>
+                <div class="p-2 bg-indigo-950 border border-indigo-500 text-indigo-300 rounded">🌐 CDN 邊緣節點<br><span class="text-[10px] text-yellow-400">沒快取時發動回源</span></div>
+                <div class="text-slate-600">➡️</div>
+                <div class="p-2 bg-emerald-950 border border-emerald-500 text-emerald-300 rounded">🖥️ 中央源站 (Origin)<br><span class="text-[10px] text-red-400">若崩潰則報502/504</span></div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「CDN 是站在前線的頂級服務生，源站則是廚房。如果服務生沒做好分流，讓所有客人都衝進廚房點菜，廚房絕對會當場癱瘓！我們的任務就是幫廚房擋下所有重複的雜事。」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 8 Dynamic Panel Block View -->
+                <div id="lesson-card-8" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第二階段：CDN 核心概念與效能
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 8.</span>
+                            <span>關鍵效能指標：Cache Hit Ratio 與 Latency</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                評估一個 CDN 系統到底有沒有發揮實質商業功效，有兩個絕對性的核心指標：一、快取命中率（Cache Hit Ratio）：前線節點不回源、直接回傳檔案給用戶的比例，理想狀態在 85% ~ 95% 以上。二、延遲時間（Latency）：數據從發出到收到回應的往返時間（TTFB）。這兩個指標直接決定了使用者的購物流暢度與源站的頻寬節省量。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    很多企業買了缺乏售後優化服務的標準化 CDN，因為沒有技術團隊協助配置，快取命中率只有 20%，結果既要付 CDN 頻寬費、又要付源站爆量頻寬費，形同花兩次冤枉錢。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們提供秒級更新的『報告大本營』與視覺化圖表分析系統。業務能直接拿著真實數據向客戶證明：騰雲幫他們實現了超高命中率與極致低延遲，確實省下了高達九成的主機頻寬費。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="max-w-md mx-auto text-center">
+                <div class="text-sky-400 font-bold mb-1">🎯 理想的快取命中率分布</div>
+                <div class="w-full bg-slate-800 h-5 rounded-full overflow-hidden flex my-2">
+                    <div class="bg-emerald-500 text-[10px] text-white flex items-center justify-center font-bold" style="width: 93%">93% 命中 (節點發貨)</div>
+                    <div class="bg-red-500 text-[10px] text-white flex items-center justify-center font-bold" style="width: 7%">7% 回源</div>
+                </div>
+                <div class="text-[11px] text-slate-500">命中率越高 = 源站越安全、網路頻寬費用越省</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「數據會說話。我們的快取命中率能穩定保持在 90% 以上，這意味著十個客人有九個在前線就被服務生打理好了，直接幫您省下九成的中央主機負載與頻寬電費！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 9 Dynamic Panel Block View -->
+                <div id="lesson-card-9" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第三階段：我們的護城河：騰雲專屬架構解析
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 9.</span>
+                            <span>拆解我們的 CDN 引擎：獨立反向代理 Nginx</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                騰雲運算的 CDN 系統之所以具備超強的穩定性，在於底層極其扎實的核心架構設計。我們的每一個 CDN 邊緣節點，在底層實體上，都是一台經過深度效能優化、高併發調校的獨立『反向代理 Nginx 伺服器』。Nginx 負責接收第一線的所有網路請求，扮演過濾惡意流量與高速快取靜態資源的強大核心引擎。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    市面上許多跨國大廠型 CDN 的規則非常死板僵硬。客戶如果有特殊的 HTTP 安全標頭檢查、或是非標準的客製化快取路由邏輯需求，跨國大廠完全無法、也不願意為了單一客戶調整其底層程式碼。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    因為我們的底層完全基於強大且可高度程式化的 Nginx 反向代理架構，不論客戶的商業邏輯多麼複雜，我們的 FAE 技術工程師都能在幾分鐘內為其撰寫專屬的 Nginx Rule 規則，實現秒級別的彈性客製化。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs">
+            <div class="max-w-md mx-auto bg-slate-950 p-3 rounded border border-indigo-500/30 text-center font-mono">
+                <div class="text-indigo-400 font-bold mb-2">⚙️ 騰雲節點底層：深度優化反向代理 Nginx 引擎</div>
+                <div class="grid grid-cols-3 gap-2 text-[11px] text-slate-300">
+                    <div class="p-1.5 bg-slate-900 rounded border border-slate-800">1. 安全過濾</div>
+                    <div class="p-1.5 bg-slate-900 rounded border border-slate-800">2. 高速快取</div>
+                    <div class="p-1.5 bg-slate-900 rounded border border-slate-800">3. 客製化 Rule</div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「跨國大廠的 CDN 像大眾捷運，所有人只能遵守同一套僵硬的規則；騰雲的 CDN 底層是獨立的高效能 Nginx 引擎，就像為您量身打造的專屬超跑，任何客製化需求，我們幾分鐘內就能幫您寫進引擎裡！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 10 Dynamic Panel Block View -->
+                <div id="lesson-card-10" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第三階段：我們的護城河：騰雲專專屬架構解析
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 10.</span>
+                            <span>站點 (Site) 與節點 (Node) 的多對多彈性宇宙</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                在騰雲的系統架構中，『站點（Site）』代表客戶所管理的網站配置與網域名稱，而『節點（Node）』代表分散在全球各地的 Nginx 反向代理主機。在系統關聯上，我們支援極具彈性的『多對多自由關聯架構』。多個節點可以共同為同一個站點提供服務，而一個節點同時也可以掛載多個站點。這種設計賦予了我們在面臨大流量衝擊時，隨時動態抽調、重組硬體資源的實力。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    大部分中小型 CDN 廠商的架構屬於死板的一對一或硬性分組，當某個客戶遭受突發性的巨大網路流量衝擊時，系統無法跨組靈活動態調度其他閒置的 Nginx 伺服器前來支援，只能眼睜睜看著伺服器爆滿崩潰。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們的控制台內建強大的動態調度能力。一旦市場發生突發事件導致客戶流量爆增，系統大腦可以一鍵將數十台閒置的 Nginx 獨立節點瞬間關聯至該客戶的站點上，瞬間擴充數倍防禦火網與吞吐頻寬。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="max-w-md mx-auto flex justify-between items-center text-center">
+                <div class="space-y-1">
+                    <div class="bg-slate-950 px-2 py-1.5 rounded border border-slate-800 text-sky-400">站點 A (客戶1)</div>
+                    <div class="bg-slate-950 px-2 py-1.5 rounded border border-slate-800 text-sky-400">站點 B (客戶2)</div>
+                </div>
+                <div class="text-amber-500 font-bold text-[11px] px-2">🔄 多對多<br>自由動態綁定</div>
+                <div class="space-y-1">
+                    <div class="bg-slate-950 px-2 py-1 rounded border border-slate-800 text-indigo-300">Nginx 節點 1</div>
+                    <div class="bg-slate-950 px-2 py-1 rounded border border-slate-800 text-indigo-300">Nginx 節點 2</div>
+                    <div class="bg-slate-950 px-2 py-1 rounded border border-slate-800 text-indigo-300">Nginx 節點 3</div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「我們的系統底層是多對多的靈活宇宙。平時各司其職，一旦您的網站遭遇突發大流量，我們能像變形金剛重組一樣，瞬間抽調其他數十台獨立 Nginx 節點前來為您護航，這就是技術架構帶來的彈性優勢！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 11 Dynamic Panel Block View -->
+                <div id="lesson-card-11" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第三階段：我們的護城河：騰雲專專屬架構解析
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 11.</span>
+                            <span>為什麼我們強烈推薦大客戶使用「獨立站點」？</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                雖然騰雲的底層技術支援多對多的共用關聯，但在實際商業推廣與高防架構部署上，我們對核心客戶主要推行『獨立站點（Isolated Site）』策略。這意味著：我們會為尊榮大客戶配置一組或多台『完全專屬、與他人隔離』的 Nginx 獨立反向代理節點。這些節點不掛載任何其他客人的網站，百分之百的 CPU、記憶體與網路頻寬，全部只為該客戶服務。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    在傳統大眾型共用 CDN 中，幾百個網站共用同一台大節點。如果隔壁鄰居網站得罪了駭客、遭遇了毀滅性的 DDoS 流量攻擊，整台共用主機會瞬間被塞爆。這導致同在該伺服器上的『無辜鄰居（客戶的網站）』也跟著連帶斷線、無端受害（此現象稱為鄰居效應）。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    獨立站點是騰雲迎戰跨國大廠的殺手鐧。我們透過幫客戶進行『完全的節點物理隔離』，徹底杜絕了共用架構下的鄰居干擾風險。就算全網其他網站被打翻，客戶的專屬 Nginx 節點依舊能在護城河內穩如泰山、安穩賺錢。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <!-- ADVANCED ARCHITECTURE DIAGRAM HERO CHART -->
+        <div class="my-6 bg-slate-900 rounded-xl p-6 border border-slate-800 text-white font-mono text-xs">
+            <h4 class="text-center font-bold text-sky-400 mb-4 text-sm tracking-wider">🌟 騰雲運算【獨立站點】隔離防禦架構示意圖</h4>
+            
+            <div class="space-y-6 max-w-xl mx-auto relative">
+                <!-- Row 1 -->
+                <div class="text-center">
+                    <div class="bg-slate-950 py-2 px-4 rounded-md border border-slate-800 inline-block">
+                        🌍 公網使用者與潛在駭客流量 (Public Internet Traffic)
+                    </div>
+                </div>
+                
+                <!-- Arrow Line -->
+                <div class="text-center text-slate-600 font-bold -my-2">⬇️ 經由 SkyGTM 智慧解析分流</div>
+                
+                <!-- Row 2: Split Architecture -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+                    
+                    <!-- Left Column: VIP Isolated Site -->
+                    <div class="bg-emerald-950/20 border border-emerald-500/50 rounded-xl p-4 relative shadow-lg">
+                        <div class="absolute -top-2.5 left-4 bg-emerald-500 text-slate-950 text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                            👑 騰雲核心戰術：獨立站點
+                        </div>
+                        <div class="text-center font-bold text-emerald-400 mb-2 mt-1">專屬 Nginx 反代集群 (隔離區)</div>
+                        <div class="space-y-1.5 text-[11px]">
+                            <div class="bg-slate-950 p-2 rounded border border-emerald-900 flex justify-between">
+                                <span class="text-slate-300">🔒 專屬節點 Node-01</span>
+                                <span class="text-emerald-400 font-bold">100% 獨佔</span>
+                            </div>
+                            <div class="bg-slate-950 p-2 rounded border border-emerald-900 flex justify-between">
+                                <span class="text-slate-300">🔒 專屬節點 Node-02</span>
+                                <span class="text-emerald-400 font-bold">100% 獨佔</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 p-2 bg-emerald-900/40 rounded text-center text-[11px] text-emerald-300 border border-emerald-800/30">
+                            🛡️ 隔壁網站被攻擊被打死，完全不會波及您，主機頻寬與運算完全乾淨！
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Standard Shared Site -->
+                    <div class="bg-red-950/20 border border-red-500/30 rounded-xl p-4 relative shadow-lg">
+                        <div class="absolute -top-2.5 left-4 bg-red-500/60 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                            ❌ 大廠常見：共用架構
+                        </div>
+                        <div class="text-center font-bold text-red-400 mb-2 mt-1">共用 Nginx 大節點 (雜亂區)</div>
+                        <div class="space-y-1.5 text-[11px]">
+                            <div class="bg-slate-950 p-2 rounded border border-red-950 text-slate-400 flex justify-between">
+                                <span>🌐 共用節點 Node-Shared</span>
+                                <span class="text-red-400">🚨 混雜幾百個網站</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 p-2 bg-red-900/20 rounded text-center text-[11px] text-red-300 border border-red-900/20">
+                            💥 鄰居網站如果遭遇 DDoS 大洪水攻擊，整台主機 CPU 與頻寬耗盡，您的網站也會一同癱瘓斷線！
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Arrow Line -->
+                <div class="text-center text-slate-600 font-bold -my-2">⬇️ 後端安全守護傳輸</div>
+                
+                <!-- Row 3 -->
+                <div class="grid grid-cols-2 gap-6 max-w-xl mx-auto text-center">
+                    <div class="bg-slate-950 p-2.5 rounded border border-emerald-500/40 text-emerald-400 font-bold">
+                        🖥️ VIP 客戶獨立中央源站<br><span class="text-[10px] text-slate-400 font-normal">(穩健做生意，業績長紅)</span>
+                    </div>
+                    <div class="bg-slate-950 p-2.5 rounded border border-slate-800 text-slate-500">
+                        🖥️ 一般共用源站群<br><span class="text-[10px] text-slate-600 font-normal">(承受鄰居效應斷線風險)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「買大眾品牌的 CDN 就像跟幾百個人合租一間公寓，隔壁鄰居如果失火或招惹流氓，您全家也跟著遭殃。騰雲為您推行『獨立站點』，直接給您一棟配備獨立保全的專屬獨棟別墅，別人的風雨絕對吹不進您的家門！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 12 Dynamic Panel Block View -->
+                <div id="lesson-card-12" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第三階段：我們的護城河：騰雲專專屬架構解析
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 12.</span>
+                            <span>節點分配的商業策略與資源優化</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                『獨立站點』策略不僅僅是技術上的安全防禦，更是一門高級的商務與資源調配藝術。業務團隊可以根據客戶實際簽署的合約方案等級（例如：尊榮旗艦版 vs. 標準商務版）、預算天花板、以及他們核心的目標市場（例如：主攻東南亞跨境電商、歐美外貿、或是本土金融），來靈活指派與重組不同硬體規格、不同國際帶寬線路的 Nginx 節點集群。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    大廠 CDN 通常只提供幾種死板的高價全球統包套餐。客戶如果只需要加強東南亞地區的解析與防護速度，卻必須被迫購買昂貴的全球（包含歐美非市場）標準方案，導致預算大量被浪費在不需要的節點上。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    藉由我們多節點調度的底層彈性，業務可以搭配公司內部的『SkyCloud-Pricing』計價表，靈活地為客戶進行客製化資源配置，把所有客戶的預算好鋼全部用在刀口上，針對目標市場單獨拉一組高效能反代來服務。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs text-center font-mono">
+            <div class="max-w-md mx-auto space-y-1.5 text-slate-300">
+                <div class="text-amber-500 font-bold mb-1">💼 靈活的節點商業分配模式</div>
+                <div class="p-2 bg-slate-950 rounded border border-slate-800">標準電商 ➡️ 配置 2 台專屬 Nginx 反代節點 (高 CP 值防護)</div>
+                <div class="p-2 bg-slate-950 rounded border border-slate-800">跨國金融 ➡️ 指派 台北/香港/新加坡 實體高防獨立線路集群</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「我們不賣死板的昂貴統包套餐。騰雲的架構優勢讓我們能根據您真正的生意熱點，精準調配與配置 Nginx 專屬節點集群，幫您省下不需要的海外冤枉錢，把資源百分之百砸在會幫您賺錢的客戶市場上！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 13 Dynamic Panel Block View -->
+                <div id="lesson-card-13" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第四階段：CDN 與網站安全防護
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 13.</span>
+                            <span>網路攻擊百百種：DDoS 與惡意爬蟲威脅</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                當今網路上最具破壞力的連線攻擊主要有兩種：一、DDoS（分散式阻斷服務攻擊）：駭客操控成千上萬台殭屍網路電腦，在同一秒內對目標網站發出海量垃圾流量，將頻寬與 CPU 瞬間塞滿。二、惡意爬蟲（Malicious Bots）：利用自動化腳本瘋狂刷網頁 API，惡意消耗頻寬費或盜刷庫存。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    當遭遇競爭對手惡意買兇發動大規模 DDoS 攻擊，網站會直接癱瘓數個小時，導致週年慶或大促銷的黃金銷售期痛失百萬營收，甚至面臨嚴重的商譽危機與主管機關調查。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲的 CDN 分佈式架構原生就是 DDoS 的天敵。海量的垃圾攻擊流量在抵達客戶源站之前，會先被分散到我們全球各個前線的 Nginx 獨立節點上進行在地清洗與阻擋，確保後方的源站主機連一絲涼風都吹不到。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs text-center font-mono">
+            <div class="max-w-md mx-auto space-y-2">
+                <div class="text-red-400 font-bold">☠️ 駭客海量 DDoS 垃圾流量攻擊 (100 Gbps)</div>
+                <div class="text-slate-500">⬇️ 衝擊騰雲前線阻擋火網</div>
+                <div class="p-2 bg-slate-950 rounded border border-sky-500/40 text-sky-300 font-bold">🛡️ 全球 Nginx 邊緣節點：分散式流量清洗、拍死惡意爬蟲</div>
+                <div class="text-slate-500">⬇️ 釋放乾淨合法請求</div>
+                <div class="text-emerald-400 font-bold">🖥️ 客戶中央源站主機：安心無感、0 負載運作</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「DDoS 攻擊就像對手找了一萬個流氓堵在您的實體店門口，不讓真正的買家進來。我們的 CDN 節點就是分佈在全世界第一線的防暴警察，在路口就把流氓通通逮捕扣留，您的店面依舊開門安穩做生意！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 14 Dynamic Panel Block View -->
+                <div id="lesson-card-14" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第四階段：CDN 與網站安全防護
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 14.</span>
+                            <span>網站應用程式專屬守衛：WAF 深度過濾</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                WAF（Web Application Firewall，網頁應用程式防火牆）是專門防禦 HTTP/HTTPS 網頁層級（網路第七層）的高級守衛。傳統防火牆只檢查連線 IP 是誰、有沒有允許通過，但完全看不懂網頁語法內容。而 WAF 就像是精通語言的安檢官，能深度檢查 HTTP 請求內容裡有沒有藏著 SQL 注入（惡意偷拔資料庫）或 XSS 跨網站指令碼（植入木馬）等代碼攻擊漏洞。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    即使網站買了傳統防火牆，駭客只要偽裝成正常瀏覽用戶，在網站搜尋框或登入欄位輸入惡意資料庫語法（SQL 注入），就能在一秒內把客戶後台的幾十萬筆會員個資、信用卡號全部打包外洩，引發災難性商譽危機。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們在專屬的 Nginx 邊緣節點上直接深度整合了高效能的 WAF 規則過濾引擎。在最外圍、最前線就將所有試圖鑽網頁代碼漏洞的惡意請求直接阻斷，全面保護後台應用程式與資料庫安全。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="max-w-md mx-auto space-y-2 text-left text-slate-300">
+                <div class="bg-slate-950 p-2 rounded border border-slate-800 flex justify-between">
+                    <span>🕵️ 駭客嘗試 SQL 注入漏洞利用</span>
+                    <span class="text-red-400 font-bold">⚠️ 攻擊</span>
+                </div>
+                <div class="bg-indigo-950 p-2 rounded border border-indigo-500 text-center text-indigo-300 font-bold">
+                    🛡️ 騰雲 Nginx 前線 WAF 語法引擎深度檢查
+                </div>
+                <div class="text-center text-red-400 font-bold py-1">➔ [ ❌ 立即阻斷並封鎖該 IP ] ➔ 確保後端資料庫安全無虞</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「傳統防火牆只檢查身分證，但包包裡裝了什麼它看不懂。我們的 WAF 則是店門口的高科技 X 光機，任何人想帶危險武器（惡意語法）進來偷資料，一過機器當場被沒收拒絕入境！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 15 Dynamic Panel Block View -->
+                <div id="lesson-card-15" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第四階段：CDN 與網站安全防護
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 15.</span>
+                            <span>HTTPS 與 SSL/TLS 憑證自動化管理</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                HTTPS 是指在網站傳輸過程中加入了 SSL/TLS 加密協定。當用戶在網頁上輸入密碼或信用卡時，這些資料會被轉換成一串連神仙都看不懂的加密亂碼進行傳輸，防止被中途截聽。同時，HTTPS 會在瀏覽器網址列顯示一個代表信任的『安全鎖頭』，這是當今所有現代網站的標配，也是 Google 搜尋排名（SEO）的重要指標。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    網站若沒啟用 HTTPS，會被瀏覽器標示為『不安全』；更常發生的痛點是，企業內部的 IT 人員忘記手動更新 SSL 安全憑證，導致某天客戶一打開網站直接跳出驚悚的『隱私權可能外洩』紅色警告，客戶當場被嚇跑。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲運算的平台直接在 Nginx 前線節點提供自動化的 SSL 憑證申辦、無縫掛載與過期全自動續約服務。客戶的工程師不需要每年提心吊膽擔心憑證過期，一鍵配置、永久安全。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono text-center">
+            <div class="max-w-md mx-auto space-y-1">
+                <div class="text-red-400">❌ HTTP (明文) : 用戶 [ 刷卡密碼: 1234 ] ➡️ 中途可被攔截 ➡️ 伺服器</div>
+                <div class="text-emerald-400">🔒 HTTPS (加密) : 用戶 [ 刷卡密碼: 1234 ] ➡️ 傳輸加密為亂碼: *#&X%^9 ➡️ 伺服器</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「沒加 HTTPS 的網站，就像把客人的信用卡號密碼用明信片寫著到處寄，一路上誰都看得到。我們的 CDN 在前線直接幫您全面加密，並提供全自動憑證續約，讓您的網站永遠掛著代表信任的安全鎖！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 16 Dynamic Panel Block View -->
+                <div id="lesson-card-16" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第四階段：CDN 與網站安全防護
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 16.</span>
+                            <span>網頁前端防護機制：點擊劫持與安全標頭配置</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                『點擊劫持（Clickjacking）』是一種極具欺騙性的前端網頁駭客攻擊。駭客會利用 CSS 將客戶的正牌網站包在一個完全透明的 iframe 框架裡，並疊加在一個看似無害的惡意按鈕上方。使用者以為自己點的是免費遊戲，實際上卻是點擊了正牌網站內部的確認扣款。防禦這種攻擊的最佳手段，就是在 Nginx 伺服器回傳網頁時，強制加上 <code>X-Frame-Options</code> 安全標頭，嚴格限制網頁不可以被其他人任意內嵌。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    客戶的網站原始碼雖然寫得很安全，但因為缺乏伺服器端的前端防護安全標頭配置，被詐騙集團拿去套殼做成點擊劫持陷阱，消費者受騙上當後怪罪並起訴正牌企業，商譽重創。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    這正是我們技術能力的展現。我們的 FAE 技術工程師能直接在邊緣節點的 Nginx 配置中一行程式碼搞定安全標頭，不需要客戶大費周章去修改他們脆弱的舊網站原始碼，直接在最外圍套上前端安全金鐘罩。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="max-w-md mx-auto bg-slate-950 p-3 rounded border border-amber-500/30">
+                <div class="text-amber-400 font-bold mb-1">⚠️ 點擊劫持防禦機制</div>
+                <div class="text-slate-300 space-y-1">
+                    <div>1. 駭客嘗試用 &lt;iframe&gt; 惡意嵌入包覆您的正牌官網</div>
+                    <div class="text-emerald-400">2. 騰雲 Nginx 回傳強制帶入：<code>X-Frame-Options: SAMEORIGIN</code></div>
+                    <div class="text-sky-400">3. 瀏覽器收到後直接拒絕被非法嵌入，當場破壞駭客詭計！</div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「點擊劫持就像駭客在您的正牌收銀機上放了一張魔術隱形透明貼紙，引誘客人隔空按到付款。我們直接在 Nginx 節點幫您啟動高級安全標頭防禦，徹底杜絕網頁被套殼的風險！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 17 Dynamic Panel Block View -->
+                <div id="lesson-card-17" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第五階段：產業情境與客戶痛點
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 17.</span>
+                            <span>電商產業的 CDN 應用：迎接雙 11 爆量營業額</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                電商產業具備極其明顯的流量特性：平時流量平穩，但一遇到週年慶、雙 11、或突發的網紅直播帶貨，流量會在短短幾秒內爆衝數百倍。電商網頁上存在大量的商品高解析度大圖與活動海報。這個產業對速度的要求到了病態的程度，因為網頁載入只要稍微卡頓，消費者的衝動購物慾望就會瞬間冷卻並關閉視窗。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    行銷部門砸了百萬預算請大牌網紅直播推銷，結果直播一喊開賣，瞬間湧入數萬人，網站直接卡死、圖片跑不出來、結帳畫面瘋狂轉圈圈，錯失了最黃金的十分鐘發財檔期，行銷預算全丟進水裡。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們針對電商客戶提供專屬的 Nginx 靜態快取優化與動態 API 路由加速方案。透過動靜態分離架構，將 95% 以上的商品大圖與海報直接在離消費者最近的騰雲節點快速分發，同時確保結帳 API 走綠色專線回源，創造極速順暢的購物體驗。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono text-center">
+            <div class="max-w-md mx-auto space-y-2">
+                <div class="text-sky-400 font-bold">🛒 電商動靜態分離加速架構</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="p-2 bg-slate-950 rounded border border-slate-800">商品圖片與靜態海報 (95% 流量)<br>➡️ <span class="text-sky-400 font-bold">騰雲節點直接發貨秒開</span></div>
+                    <div class="p-2 bg-slate-950 rounded border border-slate-800">金流與購物車 API (5% 流量)<br>➡️ <span class="text-amber-400 font-bold">高鐵骨幹專線直達源站</span></div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「電商搶購往往是一秒鐘幾十萬上下的戰爭。騰雲的 CDN 方案能幫您完美接住這波『發財暴風流量』，圖片秒開、結帳不卡，把每一滴驚人的造訪流量都穩穩轉化為實實在在的訂單營收！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 18 Dynamic Panel Block View -->
+                <div id="lesson-card-18" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第五階段：產業情境與客戶痛點
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 18.</span>
+                            <span>遊戲與影音串流產業：大頻寬滿速下載的祕密</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                遊戲與影音串流產業是網路世界的『頻寬吞噬怪獸』。遊戲產業的痛點在於新版本發佈或大改版時，數十萬玩家會在同一時間瘋狂下載數 GB 的大容量更新檔；影音串流平台（如 OTT、線上教學、直播）則要求極其極致的低延遲與高吞吐量，任何嚴重的影片緩衝轉圈圈都會摧毀使用者體驗。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    遊戲大改版當天，下載主機的頻寬瞬間被玩家塞爆，玩家下載速度掉到 10 KB/s 或者瘋狂斷線。玩家憤怒之下直接怒給一星負評、甚至憤而棄遊；影音平台的觀看畫質自動降到 360P 且每看三秒卡五秒，會員紛紛要求退費。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    騰雲運算具備超大頻寬吞吐能力的 Nginx 高速節點網路。針對大檔案下載，我們支援切片快取（Slicing）與大頻寬保障通道；針對影音串流，支援高效的邊緣媒體串流傳遞優化技術，讓檔案發佈像在局域網一樣快捷。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono text-center">
+            <div class="max-w-md mx-auto bg-slate-950 p-2.5 rounded border border-slate-800 text-slate-300">
+                📥 [數 GB 遊戲安裝包/更新檔] ➡️ 騰雲全球 Nginx 節點分發 (啟動智慧大檔案切片快取) ➡️ 百萬玩家同時滿速下載 (中央源站負載為0)
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「大改版是遊戲的黃金賺錢期，絕不能敗在下載卡住。我們的超大頻寬 Nginx 專屬集群，能讓您的玩家體驗到極致的『下載滿速飛奔』，片刻不等待，留存與儲值率自然雙雙飆升！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 19 Dynamic Panel Block View -->
+                <div id="lesson-card-19" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第五階段：產業情境與客戶痛點
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 19.</span>
+                            <span>高防禦需求產業的架構痛點與法規監管</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                高防禦需求產業包含金融科技（FinTech）、線上博弈、政府機關公眾服務以及大型跨國虛擬貨幣交易所。這些產業通常是全球跨國駭客、勒索集團最喜歡盯上的大肥羊。他們面臨的攻擊是多維度、不間斷且高度專業的混合型攻擊（同時發動網路層大流量 DDoS 與應用層 WAF 漏洞探測）。同時，這些產業受到政府法規的極其嚴格監管，對於系統停機時間（Downtime）的容忍度近乎為零。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    一分鐘的斷線停機，可能就會導致加密貨幣交易所數百萬美元的交易無法媒合、或是金融機構面臨主管機關的巨額法規罰款與嚴厲調查，甚至遭到駭客藉由系統漏洞進行勒索要挾。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們精心規劃的『獨立站點』物理隔離架構正是為此而生。配合最高規格的資安高防線路與即時更新的 WAF 規則火網，我們為金融與高防客戶建立了一套具備 99.99% 高可用性、他人絕對無法干擾的專屬安全清洗通道。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono text-center">
+            <div class="max-w-md mx-auto bg-purple-950/30 p-3 rounded border border-purple-500/30 text-purple-300">
+                🔒 金融級最高防線路：混合攻擊 ➡️ 進入專屬隔離 Nginx 節點進行全量清洗 ➡️ 乾淨合法數據安全傳回核心伺服器 (合規、不停機)
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「對於金融與高防客戶來說，安全與不停機就是生命。我們為您搭建的『獨立站點』物理安全屏障，不論外面世界被打得再混亂，您的專屬 Nginx 防護盾牌依然堅不可摧，確保企業絕對合規、絕對不停機！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 20 Dynamic Panel Block View -->
+                <div id="lesson-card-20" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第六階段：銷售實戰與競品應對
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 20.</span>
+                            <span>需求挖掘與痛點分析：業務核心心法</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                在真實的商務銷售實戰中，客戶從來都不想聽枯燥的技術術語（例如 Nginx、反向代理、HTTP 標頭）。客戶真正關心的是他們自己的『生意、成本、以及職涯安全』。業務的核心銷售心法是：『多聽少說，巧妙提問』。透過精準的問題引導客戶主動說出痛苦，我們才能對症下藥，將技術指標轉化為商業價值進行包裝銷售。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    新手業務一見面就瘋狂背誦 CDN 規格，客戶聽得昏昏欲睡，最後拋下一句：『我們現在用的很好，沒有需要』，業務只能含淚離場，連測試的機會都拿不到。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們為新人業務整理了『痛點挖掘金三角問題』，教你如何透過詢問：『上個月促銷時主機還撐得住嗎？』、『每年頻寬費有沒有佔掉很大成本？』來引導出商機，並無縫推介我們的解決方案。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="max-w-md mx-auto space-y-1.5 text-slate-300">
+                <div class="text-sky-400 font-bold text-center">💡 實戰銷售高階問話術</div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">❓「請問您們大促銷時，IT 工程師是不是都要留下來通宵加班顧伺服器怕掛掉？」</div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800">❓「國外用戶有沒有反應過，您們的官網商品大圖打開速度比較慢？」</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「頂級的業務不賣產品，我們賣的是『解藥』。先不要聊技術，多問問客戶：『上次辦活動網頁順嗎？主機有被塞爆過嗎？』讓客戶自己聊出痛苦，我們再把騰雲的服務當作最完美的解藥送上去！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 21 Dynamic Panel Block View -->
+                <div id="lesson-card-21" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第六階段：銷售實戰與競品應對
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 21.</span>
+                            <span>市場競品分析與優勢：如何迎戰跨國大廠</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                知己知彼，百戰不殆。在 CDN 市場上，主要的跨國巨頭包括 Cloudflare（市佔最高、自助式）與 Imperva（資安強、價格貴）。業務必須清楚我們迎戰這些巨頭的『差異化利基點』：大廠雖然名氣大，但他們提供的是標準化、自助式的服務（出事只能用英文發 Ticket 等海外三天回覆）；而騰雲提供的是：『1. 獨立站點物理隔离防禦、2. 隨傳隨到的 24/7 本地真人 FAE 技術專家、3. 無上限的頂級規則客製化能力』。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    客戶目前使用 Cloudflare 免費或低階版，自以為很安全。然而一旦遭遇複雜的特定攻擊、或者想要調整一個特殊的快取規則，卻發現聯絡不到任何真人客服，網站停擺三天，損失慘重卻求助無門。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們提供一份完整的『CDN 競品分析』報告（可在表單隨時查閱）。當客戶搬出大廠壓你時，你可以自信地亮出我們的三大王牌：獨立隔離、極致客製、以及在地技術保姆服務。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-3 border border-slate-800 text-xs">
+            <table class="w-full text-center border-collapse border border-slate-800 text-[11px] font-mono">
+                <thead>
+                    <tr class="bg-slate-950 text-slate-400">
+                        <th class="border border-slate-800 p-1.5">核心特性</th>
+                        <th class="border border-slate-800 p-1.5">跨國託管大廠</th>
+                        <th class="border border-slate-800 p-1.5 text-emerald-400 font-bold">騰雲運算 (SkyCloud)</th>
+                    </tr>
+                </thead>
+                <tbody class="text-slate-300">
+                    <tr>
+                        <td class="border border-slate-800 p-1.5 bg-slate-950/40">防禦架構</td>
+                        <td class="border border-slate-800 p-1.5 text-red-400">萬人共用大節點 (鄰居風險)</td>
+                        <td class="border border-slate-800 p-1.5 text-emerald-400 font-bold">專屬獨立站點 (完全物理隔離)</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-slate-800 p-1.5 bg-slate-950/40">售後技術支援</td>
+                        <td class="border border-slate-800 p-1.5 text-red-400">英文發單 / 機器人回覆</td>
+                        <td class="border border-slate-800 p-1.5 text-emerald-400 font-bold">24/7 在地真人 FAE 專家熱線</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「跨國大廠就像超大型的美式自助餐，便宜但什麼都要自己來，出事找不到人。騰雲則是您的『頂級專屬私廚』，不僅給您物理隔離的專屬獨立節點，更有隨傳隨到的在地 FAE 技術團隊當您的靠山，出事一通電話三分鐘解決！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 22 Dynamic Panel Block View -->
+                <div id="lesson-card-22" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第六階段：銷售實戰與競品應對
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 22.</span>
+                            <span>敲門磚戰術：如何善用自製「域名檢測工具」</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                銷售最忌諱空口說白話。為了讓業務在拜訪客戶的第一分鐘就展現驚人的專業度，我們特別開發了基於 Streamlit 的技術大禮包——『域名檢測工具（包含空軍、海軍、陸軍三套客製化工具）』。業務只要在工具輸入客戶的網址，系統就能當場一秒自動掃描該網域的 DNS 解析時間、快取命中狀態、是否缺漏關鍵的前端安全標頭（如點擊劫持防禦）等客觀數據，並輸出精美的視覺化檢測報告。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    跟客戶開會時，客戶防備心很重，冷冷地說：『我們網站目前速度很快、安全性很完美，不需要調整。』業務沒有數據，當場尷尬破防、接不下去話。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    此時立刻亮出 Andy 開發的 Streamlit 檢測工具。當場跑出報告向客戶展示：『您看，報告顯示您目前的網站完全沒有配置點擊劫持防禦標頭，且在全球的 DNS 解析延遲高達 300 毫秒，這就是我們可以立刻幫您升級的地方。』用無懈可擊的科學數據當敲門磚。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs text-center font-mono">
+            <div class="max-w-md mx-auto space-y-2">
+                <div class="text-sky-400 font-bold">🚀 騰雲專屬 Streamlit 網域自動健檢大禮包</div>
+                <div class="grid grid-cols-3 gap-1.5 text-[10px]">
+                    <div class="p-1.5 bg-slate-950 border border-sky-500 rounded font-bold">✈️ 空軍檢測工具<br><span class="text-slate-500 font-normal">秒查 DNS 解析時延</span></div>
+                    <div class="p-1.5 bg-slate-950 border border-blue-500 rounded font-bold">🚢 海軍檢測工具<br><span class="text-slate-500 font-normal">掃描前端安全標頭</span></div>
+                    <div class="p-1.5 bg-slate-950 border border-emerald-500 rounded font-bold">🪖 陸軍檢測工具<br><span class="text-slate-500 font-normal">全面架構漏洞診斷</span></div>
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「談業務不能靠通靈，我們要用數據說話！開會時直接拿出我們的『空海陸軍網域檢測工具』當場幫客戶的網站做健檢，當客觀報告指出防禦漏洞與解析超時，客戶的防備心會瞬間瓦解，主動向您請教解法！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 23 Dynamic Panel Block View -->
+                <div id="lesson-card-23" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第六階段：銷售實戰與競品應對
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 23.</span>
+                            <span>POC (概念驗證) 的完美引導與 FAE 團隊分工</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                POC（Proof of Concept，概念驗證）是臨門一腳、促成簽約的最核心階段。它是讓客戶免費將一小部分網站流量切換到騰雲的 CDN 上進行為期 1~2 週的實際測試。在這個階段，業務與 FAE（現場應用工程師）有著極其嚴格的『黃金鐵三角分工』：業務負責與客戶談定『測試的範圍、明確的成功指標（如網頁載入時間縮短 40%）、並取得切換同意』；而 FAE/技術支援工程師則負責『後台獨立站點搭建、精準配置 Nginx 規則、並全程引導客戶安全完成 DNS 切換』。業務絕對不能越界亂開技術支票。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    業務為了拿單，在沒問過工程師的情況下，在客戶面前拍胸脯亂答應：『我們的系統連一毫秒都不會延遲、什麼瘋狂的功能我們都能隔天寫出來！』導致後續 FAE 介入時發現技術根本辦不到，客戶怒斥欺騙，企業商譽嚴重受損。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們在『業務提案教戰手冊』中明確定義了 POC 流程。業務專心做好商務推進與需求鎖定，技術問題一律拉 FAE 進群專業回覆。這種完美的協同作戰，能讓客戶感受到騰雲是一間紀律嚴明、技術扎實的頂級科技企業。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto text-left">
+                <div class="p-2.5 bg-slate-950 rounded border border-sky-500/30">
+                    <span class="text-sky-400 font-bold block mb-1">💼 業務專職 (商務線)</span>
+                    1. 談定 POC 測試合約範疇<br>
+                    2. 鎖定簽約成功驗收指標<br>
+                    3. 主導商務談判與報價關單
+                </div>
+                <div class="p-2.5 bg-slate-950 rounded border border-emerald-500/30">
+                    <span class="text-emerald-400 font-bold block mb-1">🛠️ FAE 專職 (技術線)</span>
+                    1. 搭建邊緣隔離反代 Nginx<br>
+                    2. 客製化配置快取路由規則<br>
+                    3. 指導客戶零停機安全切換
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「POC 測試是成交的關鍵。業務的任務是幫客戶談定測試成功的標準、約定好『效果達標就簽約』；而底層的架構與 Nginx 設定，放心地交給我們專業的 FAE 技術團隊來為您撐腰。各司其職，單子絕對手到擒來！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 24 Dynamic Panel Block View -->
+                <div id="lesson-card-24" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第六階段：銷售實戰與競品應對
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 24.</span>
+                            <span>常見客戶異議處理：嫌太貴、怕麻煩的話術攻防</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                當你提出報價或建議轉換系統時，客戶本能地會產生抗拒，丟出三大經典擋箭牌：1.『太貴了』、2.『更換系統工程浩大、太麻煩了』、3.『我們現在用的好好的，不想動』。對付這些異議，業務的核心邏輯是：『拆解轉換風險，強調投資回報率（ROI）』。我們要幫客戶算帳，證明轉換後省下的源站主機頻寬費、免去的宕機損失，遠遠大於付給騰雲的 CDN 費用；並且強調轉移工作全部由騰雲技術全權接管。
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    遇到客戶說太貴或太麻煩，業務只能唯唯諾諾地提出降價、或者無效地重複背誦產品很好，無法擊中客戶的心，導致專案無限期擱置。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    我們在『業務常見問題QA』表單中整理了標準應對話術。面對客戶嫌搬家麻煩，我們直接亮出承諾：『轉移過程由騰雲 FAE 全程主導、提供零停機、無縫接軌測試，您和您的工程師完全不需要動手、不影響一秒鐘的線上生意。』徹底消除其心理防線。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono">
+            <div class="max-w-md mx-auto space-y-1 text-left">
+                <div class="text-red-400">❌ 客戶顧慮：「更換 CDN 怕會斷線，IT 人員沒空弄這個...」</div>
+                <div class="text-emerald-400 font-bold">🎯 核心話術破解：</div>
+                <div class="bg-slate-950 p-2 rounded border border-slate-800 text-slate-300">
+                    「請您放心！所有搬家與配置優化工作皆由騰雲專業的 FAE 技術團隊一手操刀，我們會先在獨立的隔離節點配置並測試完畢，做到完全『零停機、無縫接軌』，貴司 IT 團隊無須耗費人力，0 風險升級！」
+                </div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「客戶說麻煩，是因為怕 IT 出包丟飯碗。告訴他：『搬家轉移的工作，騰雲的技術團隊會全權接管，做到零停機、無縫接軌，您完全不需要動手。』消除他的風險，他就願意給我們測試的機會！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Lesson 25 Dynamic Panel Block View -->
+                <div id="lesson-card-25" class="lesson-view hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-all">
+                    <!-- Top Ribbon Branding Header Layout -->
+                    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white border-b border-slate-200">
+                        <div class="inline-block bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[10px] px-2 py-0.5 rounded font-mono font-bold tracking-wider mb-2 uppercase">
+                            第六階段：銷售實戰與競品應對
+                        </div>
+                        <h2 class="text-lg font-bold tracking-tight text-white flex items-center space-x-2">
+                            <span class="text-sky-400 font-mono text-base shrink-0">Lesson 25.</span>
+                            <span>價值與報價策略：如何幫客戶計算投資報酬率 (ROI)</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Main inner panel layout components -->
+                    <div class="p-6 space-y-6">
+                        <!-- Concept section info -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center space-x-1.5">
+                                <i class="mdi mdi-lightbulb-on-outline text-sky-500 text-sm"></i>
+                                <span>💡 核心技術科普觀念</span>
+                            </h4>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">
+                                完美的商務收尾，在於將服務『定價（Pricing）』轉化為客戶的『內部業績與省錢回報（ROI）』。業務在最後報價時，要巧妙善用公司內部的『SkyCloud-Pricing』標準報價估算表，根據客戶的月流量、請求數、防護需求（是否需要專屬獨立站點 Nginx 節點、WAF 級別）進行靈活的階梯式與模組化精準報價。永遠要對客戶強調：『這不是一筆費用支出，這是在幫公司省錢兼賺錢。』
+                            </p>
+                        </div>
+                        
+                        <!-- Pain-point split advantages grid box -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left panel card: Client Painpoint -->
+                            <div class="bg-red-50/40 border border-red-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-red-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-alert-circle-outline text-sm"></i>
+                                    <span>💥 客戶痛點與常見危機</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    業務給出報價單後，直接把單子丟給客戶等回覆，沒有幫客戶做商業價值的計算，導致客戶的主管審核時只看到一筆好幾萬的支出，隨手一筆直接刪除預算。
+                                </p>
+                            </div>
+                            <!-- Right panel card: SkyCloud Advantage Edge -->
+                            <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4">
+                                <h5 class="text-xs font-bold text-emerald-700 mb-2 flex items-center space-x-1">
+                                    <i class="mdi mdi-shield-check-outline text-sm"></i>
+                                    <span>🛡️ 騰雲架構優勢與話術利基</span>
+                                </h5>
+                                <p class="text-slate-600 text-xs leading-relaxed">
+                                    善用我們工具列中的『SkyCloud-Pricing』。在提案書中為客戶列出清晰的對比公式：『啟用騰雲獨立站點 CDN ➡️ 預期為主機節省 60% 的硬體負載與頻寬費 ➡️ 每月省下 X 萬元，同時大促銷期間免除宕機損失，這就是最直接的投資回報！』用商務價值漂亮關單。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Architecture representation diagram layout -->
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center space-x-1.5">
+                                <i class="mdi mdi-vector-arrange-and-merge text-indigo-500 text-sm"></i>
+                                <span>📊 運作架構示意圖</span>
+                            </h4>
+                            
+        <div class="my-4 bg-slate-900 rounded-xl p-4 border border-slate-800 text-xs font-mono text-center">
+            <div class="max-w-md mx-auto bg-slate-950 p-3 rounded border border-emerald-500/20 text-slate-300 text-left space-y-1">
+                <div class="text-emerald-400 font-bold text-center mb-1">📈 騰雲架構帶來的實質商業 ROI</div>
+                <div>💰 <span class="text-sky-300">幫公司省：</span> 減少高達 60% ~ 80% 的自有源站伺服器擴張成本與暴量頻寬費</div>
+                <div>💰 <span class="text-emerald-300">幫公司賺：</span> 網頁秒開使轉單率攀升 10% + 阻斷網路攻擊，確保營收 0 中斷</div>
+            </div>
+        </div>
+        
+                        </div>
+
+                        <!-- Highlight box quote closing sentence -->
+                        <div class="bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-200 rounded-xl p-5 relative overflow-hidden shadow-inner mt-2">
+                            <div class="absolute -right-4 -bottom-4 text-slate-200/40 pointer-events-none">
+                                <i class="mdi mdi-bullhorn-outline text-7xl transform -rotate-12"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5">
+                                <i class="mdi mdi-comment-quote-outline text-base text-sky-600"></i>
+                                <span>業務實戰殺手級金句 (Sales Pitch)</span>
+                            </h4>
+                            <p class="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed italic pl-2 border-l-4 border-sky-500">
+                                「不要只給一張冷冰冰的報價單。幫客戶的主管算一筆帳：用我們的專屬隔離 CDN，能幫源站省下高達 70% 的昂貴國際頻寬費，省下來的錢早就超過這張報價單了！這不是花錢，這是在幫公司開源節流！」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </main>
+    </div>
+
+    <!-- MAIN APP FLOW VANILLA JAVASCRIPT LOGIC CONTROLLER -->
+    <script>
+        // Single page application view controller routine
+        function switchLesson(lessonId) {
+            // Invisible all contents
+            document.querySelectorAll('.lesson-view').forEach(view => {
+                view.classList.add('hidden');
+            });
+            
+            // Cleanup previous button design highlights in sidebar menu
+            document.querySelectorAll('.lesson-btn').forEach(btn => {
+                btn.classList.remove('bg-sky-600', 'text-white', 'shadow-md', 'shadow-sky-500/10');
+                btn.classList.add('text-slate-400', 'hover:bg-slate-800', 'hover:text-slate-100');
+                
+                const numTag = btn.querySelector('.num-tag');
+                if (numTag) {
+                    numTag.classList.remove('bg-sky-700', 'text-sky-200');
+                    numTag.classList.add('bg-slate-800', 'text-slate-500');
+                }
+            });
+            
+            // Active current requested lesson card layout element view
+            const activeCard = document.getElementById(`lesson-card-${lessonId}`);
+            if (activeCard) {
+                activeCard.classList.remove('hidden');
+            }
+            
+            // Set styles trigger highlight on the menu link option clicked
+            const activeBtn = document.getElementById(`btn-lesson-${lessonId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-400', 'hover:bg-slate-800', 'hover:text-slate-100');
+                activeBtn.classList.add('bg-sky-600', 'text-white', 'shadow-md', 'shadow-sky-500/10');
+                
+                const numTag = activeBtn.querySelector('.num-tag');
+                if (numTag) {
+                    numTag.classList.remove('bg-slate-800', 'text-slate-500');
+                    numTag.classList.add('bg-sky-700', 'text-sky-200');
+                }
+                
+                // Track down top level headers text titles labels update
+                const parentBlock = activeBtn.closest('.chapter-block');
+                const chapterTitle = parentBlock ? parentBlock.getAttribute('data-chapter') : '技術培訓';
+                document.getElementById('top-nav-chapter').innerText = chapterTitle.trim();
+                document.getElementById('top-nav-title').innerText = activeBtn.getAttribute('data-title');
+            }
+            
+            // Force viewport scroll reset smoothly to avoid cut-off display
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        // Realtime keyword search filtering algorithm core engine
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            
+            document.querySelectorAll('.lesson-btn').forEach(btn => {
+                const title = btn.getAttribute('data-title').toLowerCase();
+                const id = btn.getAttribute('data-id');
+                
+                if (title.includes(query) || id.includes(query)) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            });
+            
+            // Clean chapter block header display if children are fully omitted
+            document.querySelectorAll('.chapter-block').forEach(block => {
+                const visibleCount = block.querySelectorAll('.lesson-btn:not(.hidden)').length;
+                if (visibleCount === 0) {
+                    block.classList.add('hidden');
+                } else {
+                    block.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Initialize state engine hook load setup defaults to Lesson 1 panel display
+        window.addEventListener('DOMContentLoaded', () => {
+            switchLesson(1);
+        });
+    </script>
+</body>
+</html>
